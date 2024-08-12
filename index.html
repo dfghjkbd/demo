@@ -56,7 +56,6 @@
     if (response.status === 'connected') {
       document.getElementById("login-button").classList.add("hidden");
       document.getElementById("logout-button").classList.remove("hidden");
-      window.location.href = "page.html"; // Redirect to the page manager
     } else {
       document.getElementById("login-button").classList.remove("hidden");
       document.getElementById("logout-button").classList.add("hidden");
@@ -66,7 +65,8 @@
   function login() {
     FB.login(function(response) {
       if (response.status === 'connected') {
-        handleAuthStatusChange(response);
+        // Redirect to page.html after successful login
+        window.location.href = "page.html";
       } else {
         alert('Login failed. Please try again.');
       }
